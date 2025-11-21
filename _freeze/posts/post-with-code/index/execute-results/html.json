@@ -1,0 +1,12 @@
+{
+  "hash": "4a1c0f86b38acc936575511bd0680ffa",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"API dos correios\"\nauthor: \"Thiago\"\ndate: \"2025-11-21\"\ncategories: [api, code, python, correios]\nimage: \"logo-dos-correios.png\"\njupyter: python3\n---\n\nNeste post irei mostrar como desenvolver uma função em *python* que irá se conectar com a **API dos correios**. Esta função utilizará um parâmetro chamado cep e retornará as informações relacionadas ao cep.\n\n::: {#1925f7e5 .cell execution_count=1}\n``` {.python .cell-code}\nimport requests\n\n# Função que fará requisição à API\ndef consulta_cep(cep):\n  url = f\"https://viacep.com.br/ws/{cep}/json/\"\n  res = requests.get(url)\n  res = res.json()\n  return (res['logradouro'], res['uf'])\n```\n:::\n\n\nNo exemplo abaixo demonstro a utilização da função `consulta_cep`:\n\n::: {#2b765831 .cell execution_count=2}\n``` {.python .cell-code}\n# Lista de CEPs para consulta\nlista_cep = [\"13186642\",\n             \"13178574\",\n             \"13188020\",\n             \"13184321\",\n             \"20720293\"]\n\n[consulta_cep(cep)[0] for cep in lista_cep if consulta_cep(cep)[1] == \"SP\"]\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n['Rua Joaquim Marcelino Leite',\n 'Avenida Cabo Pedro Hoffman',\n 'Rua José de Anchieta',\n 'Rua Bernardino de Almeida']\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

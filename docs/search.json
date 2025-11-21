@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Demonstração do pacote folium",
+    "section": "",
+    "text": "Neste post irei mostrar como utilizar a biblioteca folium.\n\nfrom folium import Map, Marker, Popup\n\nm = Map(location=[-22.8773542,-47.2280647], zoom_start=14)\nMarker(location=[-22.8773542,-47.2280647], popup=Popup(\"Estudo aqui!\", max_width=\"100\", show=True)).add_to(m)\nm\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "myblog",
+    "section": "",
+    "text": "API dos correios\n\n\n\napi\n\ncode\n\npython\n\ncorreios\n\n\n\n\n\n\n\n\n\nNov 21, 2025\n\n\nThiago\n\n\n\n\n\n\n\n\n\n\n\n\nDemonstração do pacote folium\n\n\n\nmapas\n\nfolium\n\ncode\n\n\n\n\n\n\n\n\n\nNov 18, 2025\n\n\nThiago\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "API dos correios",
+    "section": "",
+    "text": "Neste post irei mostrar como desenvolver uma função em python que irá se conectar com a API dos correios. Esta função utilizará um parâmetro chamado cep e retornará as informações relacionadas ao cep.\n\nimport requests\n\n# Função que fará requisição à API\ndef consulta_cep(cep):\n  url = f\"https://viacep.com.br/ws/{cep}/json/\"\n  res = requests.get(url)\n  res = res.json()\n  return (res['logradouro'], res['uf'])\n\nNo exemplo abaixo demonstro a utilização da função consulta_cep:\n\n# Lista de CEPs para consulta\nlista_cep = [\"13186642\",\n             \"13178574\",\n             \"13188020\",\n             \"13184321\",\n             \"20720293\"]\n\n[consulta_cep(cep)[0] for cep in lista_cep if consulta_cep(cep)[1] == \"SP\"]\n\n['Rua Joaquim Marcelino Leite',\n 'Avenida Cabo Pedro Hoffman',\n 'Rua José de Anchieta',\n 'Rua Bernardino de Almeida']"
+  }
+]
